@@ -13,37 +13,5 @@ login = LoginManager(app)
 
 from models import User
 db.create_all()
-from forms import RegisterForm
 
-@app.route('/')
-def index():
-    return 'Hello World!'
-
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    if current_user.is_authenticated:
-        return redirect('/')
-    
-    form = RegisterForm()
-    if request.method == 'POST' and form.validate_on_submit():
-        email = form.email.data
-        pwd = form.password.data
-        user = User(email)
-        user.set_password(pwd)
-        db.session.add(user)
-        db.session.commit()
-        flash('Success!')
-        return redirect('/')
-    
-    else:
-        return render_template('register.html', form=form)
-
-
-# @app.route('/login', methods=['GET', 'POST'])
-# def login():
-#     if request.method == 'GET':
-#         return render_template('login.html')
-#
-#     else:
-#        username = request.form.get('username')
- 
+import routes
