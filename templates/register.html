@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% from "_formhelpers.html" import render_field %}
+
+{% block body %}
+	<h1>Register</h1>
+
+	<form action="/register" method="post" novalidate>
+		{{ form.hidden_tag() }}
+		{{ render_field(form.email) }}
+		{{ render_field(form.password) }}
+		{{ render_field(form.confirm) }}
+		{{ form.submit() }}
+	</form>
+{% endblock %}
