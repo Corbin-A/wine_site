@@ -12,7 +12,7 @@ from models import User
 @app.route('/')
 @app.route('/index')
 def index():
-    return 'Hello World!'
+    return render_template('index.html')
 
 
 ### Registration and Login ###
