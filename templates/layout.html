@@ -5,6 +5,16 @@
 		<title>Wine</title>
 	</head>
 	<body>
+		<div>
+			Wine Site:
+			<a href="/">Home</a>
+			{% if current_user.is_anonymous %}
+			<a href="/login">Log In</a>
+			{% else %}
+			<a href="/logout">Log Out</a>
+			{% endif %}
+		</div>
+		<hr>
 		{% with messages = get_flashed_messages() %}
 		        {% if messages %}
 			        <ul>
